@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit course — Student Management System</title>
+    <link rel="icon" type="image/png" href="../../assets/img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
+    </script>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-slate-900 font-sans antialiased min-h-screen">
+    <!-- Start: Sidebar toggle (checkbox, no JavaScript) -->
+    <input type="checkbox" id="sidebar-toggle" class="peer hidden">
+    <label for="sidebar-toggle" class="fixed inset-0 bg-slate-900/30 z-30 hidden peer-checked:block sm:!hidden"></label>
+    <!-- End: Sidebar toggle -->
+
+    <!-- Start: Header -->
+    <header class="fixed top-0 z-50 w-full bg-white border-b border-slate-200">
+        <div class="px-2 py-2 lg:px-5 lg:pl-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <label for="sidebar-toggle" class="inline-flex items-center p-2 text-slate-500 rounded-lg sm:hidden hover:bg-slate-100 cursor-pointer">
+                        <span class="sr-only">Open sidebar</span>
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </label>
+                    <a href="../../admin/dashboard.html" class="flex items-center ms-2 md:me-8">
+                        <img src="../../assets/img/logo.png" alt="Student Management System" class="h-10 w-10 me-3">
+                        <div class="flex flex-col">
+                            <span class="font-semibold text-slate-900 text-base">Student Management</span>
+                            <span class="text-xs text-slate-500">MUBS · Semester I 2026/2027</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <!-- Start: Header user menu -->
+                    <details class="menu-dropdown relative">
+                        <summary class="flex items-center gap-2 bg-slate-50 rounded-lg p-1 text-sm border border-slate-200 hover:bg-slate-100 cursor-pointer list-none">
+                            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-[#2563eb] border border-blue-100 text-xs font-semibold">JM</div>
+                            <div class="hidden md:block text-left mr-1">
+                                <div class="text-xs font-medium text-slate-900">James Mukasa</div>
+                                <div class="text-[10px] text-slate-500">Administrator</div>
+                            </div>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
+                        </summary>
+                        <div class="absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-lg shadow-lg z-50">
+                            <div class="px-4 py-3 border-b border-slate-200 bg-slate-50">
+                                <p class="text-sm font-medium">James Mukasa</p>
+                                <p class="text-xs text-slate-500 truncate">james.mukasa@mubs.ac.ug</p>
+                            </div>
+                            <a href="../../profile.html" class="flex items-center px-4 py-2 text-sm text-slate-600 hover:bg-slate-50"><i data-lucide="user" class="w-4 h-4 mr-2"></i>My Profile</a>
+                            <a href="../../login.html" class="flex items-center px-4 py-2 text-sm text-[#d97706] hover:bg-slate-50 border-t border-slate-200"><i data-lucide="log-out" class="w-4 h-4 mr-2"></i>Sign out</a>
+                        </div>
+                    </details>
+                    <!-- End: Header user menu -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End: Header -->
+
+    <!-- Start: Sidebar -->
+    <aside class="fixed top-0 left-0 z-40 w-64 h-screen pt-16 -translate-x-full peer-checked:translate-x-0 sm:translate-x-0 bg-white border-r border-slate-200 flex flex-col">
+        <div class="flex-1 px-3 py-4 overflow-y-auto sidebar-scrollbar">
+            <div class="space-y-1 mb-5"><p class="px-3 text-xs font-semibold text-slate-400 uppercase mb-2">Main</p><a href="../../admin/dashboard.html" class="sidebar-item border-l-3 border-transparent text-slate-500 flex items-center p-2 rounded-lg hover:bg-slate-50 hover:text-slate-900 group text-sm transition-all duration-200 pl-3"><i data-lucide="layout-dashboard" class="w-5 h-5 text-slate-400 group-hover:text-[#2563eb] transition-colors"></i><span class="ms-3 text-sm font-medium">Dashboard</span></a></div><div class="space-y-1 mb-5"><p class="px-3 text-xs font-semibold text-slate-400 uppercase mb-2">Management</p><a href="../../admin/students/index.html" class="sidebar-item border-l-3 border-transparent text-slate-500 flex items-center p-2 rounded-lg hover:bg-slate-50 hover:text-slate-900 group text-sm transition-all duration-200 pl-3"><i data-lucide="graduation-cap" class="w-5 h-5 text-slate-400 group-hover:text-[#2563eb] transition-colors"></i><span class="ms-3 text-sm font-medium">Students</span></a><a href="../../admin/courses/index.html" class="sidebar-item active border-l-3 border-[#2563eb] bg-blue-50 text-[#2563eb] flex items-center p-2 rounded-lg hover:bg-slate-50 hover:text-slate-900 group text-sm transition-all duration-200 pl-3"><i data-lucide="book-open" class="w-5 h-5 text-[#2563eb] group-hover:text-[#2563eb] transition-colors"></i><span class="ms-3 text-sm font-medium">Courses</span></a><a href="../../admin/registrations/index.html" class="sidebar-item border-l-3 border-transparent text-slate-500 flex items-center p-2 rounded-lg hover:bg-slate-50 hover:text-slate-900 group text-sm transition-all duration-200 pl-3"><i data-lucide="clipboard-check" class="w-5 h-5 text-slate-400 group-hover:text-[#2563eb] transition-colors"></i><span class="ms-3 text-sm font-medium">Registrations</span></a></div><div class="space-y-1 mb-5"><p class="px-3 text-xs font-semibold text-slate-400 uppercase mb-2">Administration</p><a href="../../admin/users/index.html" class="sidebar-item border-l-3 border-transparent text-slate-500 flex items-center p-2 rounded-lg hover:bg-slate-50 hover:text-slate-900 group text-sm transition-all duration-200 pl-3"><i data-lucide="users" class="w-5 h-5 text-slate-400 group-hover:text-[#2563eb] transition-colors"></i><span class="ms-3 text-sm font-medium">Users &amp; roles</span></a></div><div class="space-y-1 mb-5"><p class="px-3 text-xs font-semibold text-slate-400 uppercase mb-2">Account</p><a href="../../profile.html" class="sidebar-item border-l-3 border-transparent text-slate-500 flex items-center p-2 rounded-lg hover:bg-slate-50 hover:text-slate-900 group text-sm transition-all duration-200 pl-3"><i data-lucide="user-cog" class="w-5 h-5 text-slate-400 group-hover:text-[#2563eb] transition-colors"></i><span class="ms-3 text-sm font-medium">My Account</span></a></div>
+        </div>
+        <!-- Start: Sidebar user card -->
+        <div class="mt-auto border-t border-slate-200 p-4">
+            <div class="flex items-center space-x-3 mb-3">
+                <div class="relative">
+                    <div class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center bg-white text-sm font-semibold text-[#2563eb]">JM</div>
+                    <div class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium text-slate-900 truncate">James Mukasa</p>
+                    <p class="text-xs text-slate-500 truncate">james.mukasa@mubs.ac.ug</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-slate-200">
+                <i data-lucide="shield" class="w-4 h-4 text-[#2563eb]"></i>
+                <span class="text-xs font-semibold text-slate-800 uppercase tracking-wide">Administrator</span>
+            </div>
+        </div>
+        <!-- End: Sidebar user card -->
+    </aside>
+    <!-- End: Sidebar -->
+
+    <!-- Start: Main content -->
+    <div class="pt-16 sm:pl-64 min-h-screen flex flex-col">
+        <main class="flex-1 pb-8 px-4 sm:px-8 lg:px-10 pt-6">
+            <!-- Start: Page heading -->
+            <div class="max-w-2xl">
+                <h1 class="text-xl font-semibold mb-2">Edit course</h1>
+                <p class="text-sm text-slate-500 mb-6">Update BUC 3131 Advanced Web Application Development.</p>
+            </div>
+            <!-- End: Page heading -->
+
+            <!-- Start: Form -->
+            <form action="index.html" method="get" class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm max-w-2xl">
+                <div class="p-6 space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600 mb-2">Course code</label>
+                        <input type="text" class="input-field" name="code" value="BUC 3131" placeholder="BUC 3131" required >
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600 mb-2">Course title</label>
+                        <input type="text" class="input-field" name="title" value="Advanced Web Application Development" placeholder="Course title" required >
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600 mb-2">Credit units</label>
+                        <input type="number" class="input-field" name="credit_units" value="4" placeholder="4" required min="1" max="6">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600 mb-2">Lecturer</label>
+                        <select name="lecturer" class="input-field"><option selected>Dr. Peter Mugisha</option><option>Dr. Isaac Ssemanda</option><option>Ms. Joan Akello</option></select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600 mb-2">Description</label>
+                        <textarea name="description" rows="4" class="input-field"></textarea>
+                    </div>
+                </div>
+                <div class="px-4 py-4 bg-white border-t border-slate-200 flex justify-between">
+                    <a href="index.html" class="px-4 py-2 border border-slate-200 rounded-lg text-sm text-slate-600 hover:bg-slate-100">Cancel</a>
+                    <button class="px-4 py-2 bg-[#2563eb] rounded-lg text-sm font-medium text-white hover:bg-[#1d4ed8]">Update course</button>
+                </div>
+            </form>
+            <!-- End: Form -->
+
+        </main>
+        <!-- Start: Footer -->
+                <footer class="bg-[#1e3a8a] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6"><img src="assets/img/logo.png" alt="" class="h-12 w-12"><span class="font-semibold">Student Management System</span></div>
+                    <p class="text-blue-100 text-sm leading-relaxed max-w-sm">Manage students, courses, lecturers and course registrations for Makerere University Business School.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Quick links</h4>
+                    <ul class="space-y-3 text-sm text-blue-100">
+                        <li><a href="login.html" class="hover:text-white">Sign in</a></li>
+                        <li><a href="register.html" class="hover:text-white">Create account</a></li>
+                        <li><a href="courses/index.html" class="hover:text-white">Available courses</a></li>
+                        <li><a href="lecturer/dashboard.html" class="hover:text-white">Lecturer home</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Contact</h4>
+                    <ul class="space-y-2 text-sm text-blue-100">
+                        <li>registry@mubs.ac.ug</li>
+                        <li>Academic Registrar's office</li>
+                        <li class="text-[#fbbf24] pt-2">Mon–Fri, 8:00am – 5:00pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-blue-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-blue-200">
+                <p>© 2026 Student Management System. All rights reserved.</p>
+                <p>Privacy · Acceptable use · Registration policy</p>
+            </div>
+        </div>
+    </footer>
+        <!-- End: Footer -->
+    </div>
+    <!-- End: Main content -->
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
